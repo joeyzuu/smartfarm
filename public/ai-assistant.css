@@ -1,0 +1,205 @@
+/* ===== AI Assistant Page ===== */
+
+.assistant-container {
+  max-width: 980px;
+  margin: 60px auto;
+  padding: 25px;
+  background: #f0fdf4;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== Header Section ===== */
+.assistant-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.assistant-header h1 {
+  font-size: 2rem;
+  color: #0b8d31;
+  margin-bottom: 6px;
+}
+
+.assistant-header p {
+  color: #333;
+  font-size: 1rem;
+}
+
+/* ===== Chat Container =====
+   Structure:
+   - chat-box (flex:1) -> results area (scrollable)
+   - chat-input (fixed height)
+   - ai-actions (fixed height)
+================================ */
+.chat-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column; 
+  height: 78vh; /* larger result area */
+  min-height: 560px;
+}
+
+/* RESULTS / MESSAGES AREA */
+.chat-box {
+  flex: 1 1 auto;          /* takes remaining space */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff, #fbfff8);
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
+}
+
+/* Message styles */
+.bot-message, .user-message {
+  max-width: 78%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.bot-message {
+  background: #e8f9ed;
+  color: #0b8d31;
+  align-self: flex-start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.user-message {
+  background: #0b8d31;
+  color: white;
+  align-self: flex-end;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* INPUT AREA (fixed) */
+.chat-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+  margin-bottom: 14px;
+  flex: 0 0 auto; /* keep fixed height */
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.chat-input input:focus {
+  border-color: #0b8d31;
+  box-shadow: 0 0 6px rgba(11,141,49,0.12);
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #00c853, #0b8d31);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.chat-input button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+/* ===== AI Actions BELOW Input: 2 equal columns ===== */
+.ai-actions {
+  background: #ffffff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  flex: 0 0 auto; /* fixed area */
+}
+
+.ai-actions h2 {
+  color: #0b8d31;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+/* two equal columns grid */
+.action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+}
+
+.action-btn {
+  background: linear-gradient(90deg, #00c853, #0b8d31);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+/* subtle responsive behavior */
+@media (max-width: 900px) {
+  .assistant-container {
+    padding: 18px;
+  }
+  .chat-container {
+    height: 76vh;
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 600px) {
+  .assistant-container {
+    margin: 30px 12px;
+    padding: 14px;
+  }
+
+  .chat-container {
+    height: 82vh;
+    min-height: 520px;
+  }
+
+  .action-buttons {
+    grid-template-columns: 1fr; /* stack on small screens */
+  }
+
+  .bot-message, .user-message {
+    max-width: 90%;
+  }
+}
+
+/* Scrollbar styling */
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background: #b6e0b0;
+  border-radius: 6px;
+}

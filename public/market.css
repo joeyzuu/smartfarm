@@ -1,0 +1,401 @@
+/* ================================
+   Select State Section
+================================ */
+#select-state {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+/* Heading & Description */
+#select-state .market-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 250px;
+}
+
+#select-state .market-text h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #0b8d31;
+  margin: 0;
+  font-weight: 700;
+}
+
+#select-state .market-text p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+/* Controls (Dropdown + Button) */
+#select-state .market-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#select-state .market-controls select {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #0b8d31;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#select-state .market-controls select:focus {
+  border-color: #007a29;
+  box-shadow: 0 0 8px rgba(0, 123, 41, 0.3);
+}
+
+#select-state .market-controls button#go {
+  padding: 10px 25px;
+  background: linear-gradient(90deg, #00c853, #0b8d31);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#select-state .market-controls button#go:hover {
+  background: linear-gradient(90deg, #0b8d31, #007a29);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive: stack vertically */
+@media (max-width: 900px) {
+  #select-state {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #select-state .market-text,
+  #select-state .market-controls {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #select-state .market-controls {
+    justify-content: flex-start;
+  }
+}
+
+/* ================================
+   Text Selection Color
+================================ */
+::selection {
+  background-color: #0b8d31;
+  color: white;
+}
+
+/* ================================
+   Product Price Cards
+================================ */
+/* Product Price Section */
+.product-price-container {
+  padding: 30px 60px;
+  text-align: center;
+}
+#data-before-text{
+  padding: inherit;
+  background-color: #ffffff;
+  height: inherit;
+  width: inherit;
+  border-radius: 25px;
+  font-size: 2rem;
+  color: rgb(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Horizontal scroll area for cards */
+.scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;                  /* ✅ space between cards */
+  padding: 20px 10px;         /* ✅ padding inside scroll */
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for a cleaner look */
+.scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background: #b6e0b0;
+  border-radius: 10px;
+}
+
+/* Crop Card Style */
+.price-card {
+  flex: 0 0 220px;            /* ✅ uniform card width */
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 5px;                /* ✅ slight spacing for overflow edges */
+}
+
+/* Hover effect */
+.price-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Commodity name */
+.price-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Price text */
+.price {
+  color: #008000;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin: 10px 0;
+}
+
+/* Unit text */
+.unit {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+/* Button styling */
+.view-btn {
+  background: #009933;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.view-btn:hover {
+  background: #007a29;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .scroll {
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .price-card {
+    flex: 0 0 180px;
+    padding: 20px 15px;
+  }
+
+  .price-card h3 {
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 1.3rem;
+  }
+}
+
+/* ================================
+   Scroll Container for Cards
+================================ */
+.scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+  flex-wrap: nowrap;
+}
+
+.scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #0b8d31;
+  border-radius: 4px;
+}
+
+.scroll .product-price-container {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .scroll {
+    gap: 15px;
+    padding: 8px 0;
+  }
+
+  .scroll .product-price-container {
+    width: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .scroll {
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 400px;
+    gap: 15px;
+    padding: 5px 0;
+  }
+
+  .scroll .product-price-container {
+    width: 100%;
+  }
+
+  .scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scroll::-webkit-scrollbar-thumb {
+    background-color: #0b8d31;
+    border-radius: 3px;
+  }
+}
+
+/* ================================
+   Modal (View Full Details)
+================================ */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  overflow-y: auto;
+  backdrop-filter: blur(2px);
+}
+
+/* ===== Modal Content (Larger, Centered Box) ===== */
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 4% auto; /* center vertically & horizontally */
+  padding: 35px 40px;
+  border-radius: 20px;
+  width: 80%;              /* ✅ increased width */
+  max-width: 850px;        /* ✅ wider on large screens */
+  max-height: 80vh;        /* ✅ taller but scrollable */
+  overflow-y: auto;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+/* ===== Close Button ===== */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #0b8d31;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #007a29;
+}
+
+/* ===== Modal Title ===== */
+.modal-content h2 {
+  text-align: center;
+  color: #0b8d31;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* ===== Details Section (Info Grid) ===== */
+.details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* ✅ slightly wider boxes */
+  gap: 12px 25px;
+  margin-top: 10px;
+}
+
+/* Each Info Line */
+.details p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #222;
+  background: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.05);
+}
+
+/* Highlighted Labels */
+.details p strong {
+  color: #0b8d31;
+  font-weight: 600;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Scrollbar Styling ===== */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #b6e0b0;
+  border-radius: 6px;
+}
+
+/* ===== Responsive View ===== */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    padding: 25px;
+    margin: 10% auto;
+    max-height: 85vh;
+  }
+
+  .modal-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .details p {
+    font-size: 0.95rem;
+  }
+}

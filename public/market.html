@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Farm - market</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="market.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="plant.png" class="title" alt="logo">
+      <h2 class="title">Smart Farm</h2>
+    </div>
+    
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Dashboard</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="cropguide.html">Crop Guide</a>
+      <a href="#">Market</a>
+      <a href="#">Soil Test</a>
+      <a href="ai-assistant.html">AI Assistant</a>
+    </nav>
+    <div class="user-icon">
+      <img src="user.png" alt="User Account">
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </header>
+  <div id="select-state">
+  <!-- Heading & Description -->
+  <div class="market-text">
+    <h1>Market Prices</h1>
+    <p>Real-time commodity prices and market trends</p>
+  </div>
+
+  <!-- State Select & Go Button -->
+  <div class="market-controls">
+    <select id="state">
+      <option value="">--select a state--</option>
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Tamil Nadu">Tamil Nadu</option>
+      <option value="Kerala">Kerala</option>
+      <option value="West Bengal">West Bengal</option>
+      <option value="Madhya Pradesh">Madhya Pradesh</option>
+    </select>
+    <button id="go">View Prices</button>
+  </div>
+</div>
+<!-- product card -->
+  <div class="product-price-container">
+  <div id="data-before-text">
+    <h1 >Select State </h1>
+  </div>
+</div>
+
+  </div>
+<div id="detailsModal" class="modal"></div>
+  <script src="script.js"></script>
+  <script type = 'module' src="market.js"></script>
+</body>
+</html>
+
+

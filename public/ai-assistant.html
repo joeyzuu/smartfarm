@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Farm - AI Assistant</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="ai-assistant.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="plant.png" alt="logo">
+      <h2>Smart Farm</h2>
+    </div>
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Dashboard</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="cropguide.html">Crop Guide</a>
+      <a href="market.html">Market</a>
+      <a href="#">Soil Test</a>
+      <a href="ai-assistant.html" class="active">AI Assistant</a>
+      <a href="#">Profile</a>
+    </nav>
+    <div class="user-icon">
+      <img src="user.png" alt="User Account">
+    </div>
+  </header>
+
+  <!-- Main AI Assistant Section -->
+  <main class="assistant-container">
+    <section class="assistant-header">
+      <h1>🌿 Smart Farm AI Assistant</h1>
+      <p>Your personal farming assistant — powered by AI insights.</p>
+    </section>
+
+    <!-- Chat Interface (Results area) -->
+    <div class="chat-container">
+      <!-- RESULTS / MESSAGES AREA -->
+      <div class="chat-box" id="chatBox" aria-live="polite">
+        <!-- Example starter message -->
+        <div class="bot-message">
+          👋 Hi! I’m your Smart Farm Assistant. How can I help you today?
+        </div>
+      </div>
+
+      <!-- INPUT AREA -->
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type your question here..." />
+        <button id="sendBtn">Send</button>
+      </div>
+
+      <!-- Predefined AI-Powered Actions (below the input) -->
+      <section class="ai-actions" aria-label="Predefined AI actions">
+        <h2>AI-Powered Actions</h2>
+        <div class="action-buttons">
+          <button class="action-btn" data-question="Analyze crop health with satellite data">Analyze crop health with satellite data</button>
+          <button class="action-btn" data-question="Predict optimal harvest timing">Predict optimal harvest timing</button>
+          <button class="action-btn" data-question="Generate pest control strategy">Generate pest control strategy</button>
+          <button class="action-btn" data-question="Market price forecasting">Market price forecasting</button>
+          <button class="action-btn" data-question="Soil nutrient optimization">Soil nutrient optimization</button>
+          <button class="action-btn" data-question="Weather impact assessment">Weather impact assessment</button>
+          <button class="action-btn" data-question="Irrigation efficiency analysis">Irrigation efficiency analysis</button>
+          <button class="action-btn" data-question="Yield prediction modeling">Yield prediction modeling</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- user will add JS later -->
+  <script src="script.js"></script>
+  <script src="ai-assistant.js"></script>
+</body>
+</html>
+ 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mandi Prices - Andhra Pradesh</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Mandi Prices - Andhra Pradesh</h1>
+
+  <table border="1">
+    <tr>
+      <th>Market</th>
+      <th>Commodity</th>
+      <th>Variety</th>
+      <th>Min Price</th>
+      <th>Max Price</th>
+      <th>Modal Price</th>
+    </tr>
+
+    <% mandiData.forEach(item => { %>
+      <tr>
+        <td><%= item.market %></td>
+        <td><%= item.commodity %></td>
+        <td><%= item.variety %></td>
+        <td><%= item.min_price %></td>
+        <td><%= item.max_price %></td>
+        <td><%= item.modal_price %></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>

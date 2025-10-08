@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Farm - Calculator</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="calculator.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="plant.png" class="title" alt="logo">
+      <h2 class="title">Smart Farm</h2>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Dashboard</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="cropguide.html">Crop Guide</a>
+      <a href="market.html">Market</a>
+      <a href="#">Soil Test</a>
+      <a href="ai-assistant.html">AI Assistant</a>
+    </nav>
+    <div class="user-icon">
+      <img src="user.png" alt="User Account">
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </header>
+
+  <!-- Calculator Section -->
+  <section class="calculator">
+    <h1>Crop Yield Calculator</h1>
+
+    <div class="calc-form">
+      <label for="acres">Number of Acres:</label>
+      <input type="number" id="acres" placeholder="Enter acres" min="1">
+
+      <label for="crop">Select Crop:</label>
+      <select id="crop">
+        <option value="">--select a crop--</option>
+        <option value="wheat">Wheat</option>
+        <option value="rice">Rice</option>
+        <option value="cotton">Cotton</option>
+        <option value="maize">Maize</option>
+        <option value="soybean">Soybean</option>
+      </select>
+
+      <button id="calculateBtn">Calculate</button>
+    </div>
+
+    <div class="result" id="result">
+      <!-- Result will appear here -->
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
