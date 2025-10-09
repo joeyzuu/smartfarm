@@ -23,8 +23,19 @@ links.forEach(link => {
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
-menuBtn.addEventListener("click", () => {
+// Toggle menu on button click
+menuBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); // Prevent click from bubbling
   navLinks.classList.toggle("show");
+});
+
+// Close menu if click is outside
+document.addEventListener("click", (e) => {
+  if (navLinks.classList.contains("show")) {
+    if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+      navLinks.classList.remove("show");
+    }
+  }
 });
 
 
@@ -79,5 +90,8 @@ document.querySelector('.title').addEventListener('click', ()=>{
   window.open('index.html');
 })
 
-
-// crop-guide///
+//scroll effect on start farming
+function scrolling(){
+  const height = document.body.scrollHeight/3
+  window.scrollTo({ top: height, behavior: 'smooth' });
+}
