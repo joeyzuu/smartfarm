@@ -8,6 +8,7 @@
 body {
   background: #f7fff8;
   color: #1a1a1a;
+  overflow: hidden;
   /* transition: background 0.3s, color 0.3s; */
 }
 
