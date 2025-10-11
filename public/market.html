@@ -19,8 +19,7 @@
       <a href="index.html">Dashboard</a>
       <a href="calculator.html">Calculator</a>
       <a href="cropguide.html">Crop Guide</a>
-      <a href="#">Market</a>
-      <a href="#">Soil Test</a>
+      <a href="market.html">Market</a>
       <a href="ai-assistant.html">AI Assistant</a>
     </nav>
     <div class="user-icon">
@@ -28,6 +27,26 @@
       <button class="menu-btn" id="menuBtn">☰</button>
     </div>
   </header>
+  <!-- buyer section -->
+   <div class="buyer-head">
+    <h2>Marketplace - Connect with Buyers</h2>
+    <p>Find verified buyers for your crops with competitive market prices and direct contact information.</p>
+   </div>
+   <div class="space"></div>
+  <div class="buyers-section">
+    <div class="buyers-header">
+      <select id="filter" class="primary-btn" style="background:white; color:#0b8d31; border:1px solid #0b8d31;">
+        <option value="All">All Crops</option>
+        <option value="Rice">Rice</option>
+        <option value="Wheat">Wheat</option>
+        <option value="Maize">Maize</option>
+      </select>
+      <p>Showing <span id="buyer-count"></span> buyers</p>
+    </div>
+
+    <div id="buyersContainer" class="buyers-grid"></div>
+  </div>
+
   <div id="select-state">
   <!-- Heading & Description -->
   <div class="market-text">

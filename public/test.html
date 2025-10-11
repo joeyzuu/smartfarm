@@ -6,14 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-   <button onclick="view(object.link)">click</button>
+   <button id="callBtn">click</button>
    <script>
-    const object = {
-        link : 'https://youtube.com'
-    }
-    const view = (tab)=>{
-        window.open(tab, '_blank')
-    }
+    document.getElementById("callBtn").addEventListener("click", function() {
+  const phoneNumber = "+919876543210"; // 🔢 replace with your desired number
+  window.location.href = `tel:${phoneNumber}`;
+});
+
    </script>
 </body>
 </html>

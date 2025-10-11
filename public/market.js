@@ -132,3 +132,100 @@ document.getElementById('go').addEventListener('click', async () => {
   const [records, total] = await fetchStateData(state);
   render(records, total, state);
 });
+
+
+// info of buyers
+
+const buyers = [
+      {
+        name: "Green Valley Co-op",
+        crop: "Rice",
+        location: "Punjab, India",
+        price: "₹70.78/kg",
+        rating: 4.8,
+        quantity: "500 tons",
+        requirements: "Organic certified rice preferred",
+        phone: "+91-98765-43210"
+      },
+      {
+        name: "Sunrise Agro Industries",
+        crop: "Wheat",
+        location: "Haryana, India",
+        price: "₹55/kg",
+        rating: 4.6,
+        quantity: "300 tons",
+        requirements: "Grade A wheat, moisture <12%",
+        phone: "+91-98765-43211"
+      },
+      {
+        name: "Metro Food Processing",
+        crop: "Maize",
+        location: "Maharashtra, India",
+        price: "₹42.5/kg",
+        rating: 4.7,
+        quantity: "200 tons",
+        requirements: "Fresh maize, yellow variety",
+        phone: "+91-98765-43212"
+      },
+      {
+        name: "Golden Harvest Ltd",
+        crop: "Rice",
+        location: "Gujarat, India",
+        price: "₹72.7/kg",
+        rating: 4.5,
+        quantity: "400 tons",
+        requirements: "Basmati rice, long grain",
+        phone: "+91-98765-43213"
+      }
+    ];
+
+    const container = document.getElementById("buyersContainer");
+    const buyerCount = document.getElementById("buyer-count");
+    const filter = document.getElementById("filter");
+
+    function displayBuyers(list) {
+      container.innerHTML = "";
+      list.forEach(buyer => {
+        const card = document.createElement("div");
+        card.className = "buyer-card";
+        card.innerHTML = `
+          <div class="buyer-header">
+            <h3>${buyer.name}</h3>
+            <span class="rating">⭐ ${buyer.rating} rating</span>
+          </div>
+          <div class="buyer-location">${buyer.location}</div>
+          <div class="buyer-details">
+            <p><strong>Quantity Needed:</strong> ${buyer.quantity}</p>
+            <p><strong>Requirements:</strong> ${buyer.requirements}</p>
+          </div>
+          <div class="buyer-crop">${buyer.crop}</div>
+          <div class="buyer-price">${buyer.price}</div>
+          <div class="buyer-contact">
+            <i>📞</i> ${buyer.phone}
+          </div>
+          <button class="contact-btn" data-phone="${buyer.phone}">Contact Buyer</button>
+        `;
+        container.appendChild(card);
+      });
+      buyerCount.textContent = list.length;
+    }
+
+    filter.addEventListener("change", () => {
+      const value = filter.value;
+      if (value === "All") {
+        displayBuyers(buyers);
+      } else {
+        displayBuyers(buyers.filter(b => b.crop === value));
+      }
+    });
+
+    displayBuyers(buyers);
+
+
+     const buttons = document.querySelectorAll('.contact-btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const phoneNumber = button.dataset.phone;  // read data-phone
+      window.location.href = `tel:${phoneNumber}`; // open phone dialer
+    });
+  });
