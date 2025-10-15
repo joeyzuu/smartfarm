@@ -1,50 +1,63 @@
-const API_URL = "/api/chat";
+// ai-assistant.js
 
 const chatBox = document.getElementById("chatBox");
 const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
-const predefinedBtns = document.querySelectorAll(".action-btn");
+const actionButtons = document.querySelectorAll(".action-btn");
 
-async function sendMessage(message) {
-  if (!message.trim()) return;
+// Replace this with your deployed backend URL
+const API_URL = "https://smartfarm-4935.onrender.com/api/chat";
 
-  appendMessage("user", message);
+function addMessage(message, sender = "user") {
+  const msgDiv = document.createElement("div");
+  msgDiv.classList.add(sender === "user" ? "user-message" : "bot-message");
+  msgDiv.textContent = message;
+  chatBox.appendChild(msgDiv);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+async function sendMessageToServer(message) {
+  addMessage(message, "user");
   userInput.value = "";
 
-  const body = {
-    model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: message }],
-  };
+  const loadingMsg = document.createElement("div");
+  loadingMsg.classList.add("bot-message");
+  loadingMsg.textContent = "🤖 Thinking...";
+  chatBox.appendChild(loadingMsg);
+  chatBox.scrollTop = chatBox.scrollHeight;
 
   try {
-    const res = await fetch(API_URL, {
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      body: JSON.stringify({ prompt: message }),
     });
 
-    const data = await res.json();
-    const reply = data.choices?.[0]?.message?.content || "No response.";
-    appendMessage("bot", reply);
+    const data = await response.json();
+    loadingMsg.remove();
+
+    if (data.reply) addMessage(data.reply, "bot");
+    else addMessage("⚠️ Error: No reply from AI.", "bot");
   } catch (err) {
-    appendMessage("bot", "⚠️ Error fetching response.");
+    loadingMsg.remove();
+    addMessage("❌ Network error. Please try again.", "bot");
     console.error(err);
   }
 }
 
-function appendMessage(sender, text) {
-  const msg = document.createElement("div");
-  msg.classList.add(sender === "user" ? "user-message" : "bot-message");
-  msg.textContent = text;
-  chatBox.appendChild(msg);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-sendBtn.addEventListener("click", () => sendMessage(userInput.value));
-userInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") sendMessage(userInput.value);
+sendBtn.addEventListener("click", () => {
+  const message = userInput.value.trim();
+  if (message) sendMessageToServer(message);
 });
 
-predefinedBtns.forEach((btn) => {
-  btn.addEventListener("click", () => sendMessage(btn.dataset.question));
+userInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendBtn.click();
+});
+
+// Handle predefined action buttons
+actionButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const question = btn.dataset.question;
+    sendMessageToServer(question);
+  });
 });
