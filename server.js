@@ -3,19 +3,27 @@ import express from "express";
 import fetch from "node-fetch";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config(); // Load environment variables from .env
 
 const app = express();
 
-// Allow requests from all origins (or replace "*" with your frontend URL in production)
+// Middleware
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from "public" folder
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "public")));
 
 // API key from environment variables
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const PORT = process.env.PORT || 3000;
 
+// API route
 app.post("/api/chat", async (req, res) => {
   try {
     const { prompt } = req.body;
@@ -43,6 +51,11 @@ app.post("/api/chat", async (req, res) => {
     console.error("Gemini API error:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
+});
+
+// Serve index.html for the root route
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(PORT, () => {
