@@ -122,6 +122,11 @@ userInput.addEventListener("keypress", (e) => {
 actionButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const question = btn.dataset.question;
-    sendMessageToServer(question);
+    if (!question) return;
+    // populate the input for user visibility
+    if (userInput) {
+      userInput.value = question;
+      userInput.focus();
+    }
   });
 });
