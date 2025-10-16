@@ -39,8 +39,8 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column; 
-  height: 78vh; /* larger result area */
-  min-height: 560px;
+  height: 86vh; /* increased from 78vh to give larger chat area */
+  min-height: 680px; /* increased minimum height */
 }
 
 /* RESULTS / MESSAGES AREA */
@@ -49,8 +49,8 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 12px;
+  gap: 16px;               /* slightly larger spacing between messages */
+  padding: 20px;           /* increased padding for breathing room */
   margin-bottom: 12px;
   border-radius: 12px;
   background: linear-gradient(180deg, #ffffff, #fbfff8);
@@ -59,11 +59,11 @@
 
 /* Message styles */
 .bot-message, .user-message {
-  max-width: 78%;
-  padding: 12px 15px;
+  max-width: 84%;          /* make message bubbles wider */
+  padding: 14px 18px;      /* increased padding inside bubbles */
   border-radius: 12px;
-  font-size: 1rem;
-  line-height: 1.4;
+  font-size: 1.125rem;     /* larger text for better readability */
+  line-height: 1.5;        /* improve readability */
 }
 
 .bot-message {
@@ -170,8 +170,8 @@
     padding: 18px;
   }
   .chat-container {
-    height: 76vh;
-    min-height: 520px;
+    height: 84vh; /* adjusted for medium screens */
+    min-height: 620px;
   }
 }
 
@@ -182,8 +182,8 @@
   }
 
   .chat-container {
-    height: 82vh;
-    min-height: 520px;
+    height: 86vh;
+    min-height: 620px;
   }
 
   .action-buttons {
@@ -191,7 +191,8 @@
   }
 
   .bot-message, .user-message {
-    max-width: 90%;
+    max-width: 94%;
+    font-size: 1.0625rem; /* slightly smaller on very small screens */
   }
 }
 

@@ -4,7 +4,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "type": "module"
   },
   "dependencies": {
     "@google/genai": "^1.25.0",

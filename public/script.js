@@ -19,31 +19,32 @@ links.forEach(link => {
 });
 
 
-// Hamburger menu toggle
+// Hamburger menu toggle (guarded in case element isn't on the page)
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
+if (menuBtn && navLinks) {
+  // Toggle menu on button click
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent click from bubbling
+    navLinks.classList.toggle("show");
+  });
 
-// Toggle menu on button click
-menuBtn.addEventListener("click", (e) => {
-  e.stopPropagation(); // Prevent click from bubbling
-  navLinks.classList.toggle("show");
-});
-
-// Close menu if click is outside
-document.addEventListener("click", (e) => {
-  if (navLinks.classList.contains("show")) {
-    if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
-      navLinks.classList.remove("show");
+  // Close menu if click is outside
+  document.addEventListener("click", (e) => {
+    if (navLinks.classList.contains("show")) {
+      if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+        navLinks.classList.remove("show");
+      }
     }
-  }
-});
+  });
+}
 
 
-// Crop Yield Calculator
+// Crop Yield Calculator (only attach when present)
 const calculateBtn = document.getElementById("calculateBtn");
 const resultDiv = document.getElementById("result");
-
-calculateBtn.addEventListener("click", () => {
+if (calculateBtn && resultDiv) {
+  calculateBtn.addEventListener("click", () => {
   const acres = parseFloat(document.getElementById("acres").value);
   const crop = document.getElementById("crop").value;
 
@@ -85,13 +86,58 @@ calculateBtn.addEventListener("click", () => {
       </tbody>
     </table>
   `;
-});
-document.querySelector('.title').addEventListener('click', ()=>{
-  window.open('index.html');
-})
+  });
+}
+const titleEl = document.querySelector('.title');
+if (titleEl) {
+  titleEl.addEventListener('click', () => {
+    window.open('index.html');
+  });
+}
 
 //scroll effect on start farming
 function scrolling(){
   const height = document.body.scrollHeight/3
   window.scrollTo({ top: height, behavior: 'smooth' });
+}
+
+
+
+// script for soil test: attach only when elements exist and use setTimeout to simulate processing delay
+const soilBtn = document.getElementById("start");
+const report = document.querySelector(".result-card");
+if (soilBtn && report) {
+  soilBtn.addEventListener("click", () => {
+    // provide immediate feedback
+    report.innerHTML = '<div class="processing">Processing sample&hellip;</div>';
+
+    // simulate analysis delay (5 seconds) then show results
+    setTimeout(() => {
+      report.innerHTML = `
+        <div class="detailed-analysis-results">
+          <h2>Detailed Analysis Results</h2>
+          <div class="results-grid">
+            <div class="results-section">
+              <h4 class="section-title">Nutrient Levels</h4>
+              <div class="data-point"><span class="label">Nitrogen</span><span class="value success">37 ppm <span class="status optimal">Optimal</span></span></div>
+              <div class="data-point"><span class="label">Phosphorus</span><span class="value success">20 ppm <span class="status optimal">Optimal</span></span></div>
+              <div class="data-point"><span class="label">Potassium</span><span class="value success">38 ppm <span class="status optimal">Optimal</span></span></div>
+            </div>
+            <div class="results-section">
+              <h4 class="section-title">Soil Properties</h4>
+              <div class="data-point"><span class="label">Soil Type</span><span class="value">Loamy</span></div>
+              <div class="data-point"><span class="label">pH Level</span><span class="value error">8.0 <span class="status high">High</span></span></div>
+              <div class="data-point"><span class="label">Conductivity</span><span class="value">0.86 dS/m</span></div>
+            </div>
+          </div>
+          <div class="recommendations-box">
+            <h4 class="section-title">Farming Recommendations</h4>
+            <p class="optimized-for">Optimized for: <strong>Cotton cultivation in gh</strong></p>
+            <div class="recommendation-item high-priority"><p class="rec-text">Apply sulfur at 500-800 lbs/acre to lower pH from 8</p><span class="priority-tag">HIGH PRIORITY</span></div>
+            <div class="recommendation-item info"><p class="rec-text">Note: These recommendations are based on soil analysis results. Consider local weather conditions, irrigation availability, and consult with agricultural extension services for best results.</p></div>
+          </div>
+        </div>
+      `;
+    }, 5000);
+  });
 }

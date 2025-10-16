@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soil Test</title>
+<link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="Soil Test.css" />
+</head>
+<body>
+  <!-- ✅ Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="plant.png" alt="logo" />
+      <h2 class="title">Smart Farm</h2>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Dashboard</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="cropguide.html">Crop Guide</a>
+      <a href="market.html">Market</a>
+      <a href="soiltest.html">Soil Test</a>
+      <a href="ai-assistant.html">AI Assistant</a>
+    </nav>
+
+    <div class="user-icon">
+      <img src="user.png" alt="User" />
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </header>
+
+  <!-- ✅ Soil Test Section -->
+  <section class="soil-analysis">
+    <h1>🧪 Advanced Soil Analysis</h1>
+    <p class="subtitle">Professional soil testing with AI-powered analysis and personalized farming recommendations</p>
+
+    <div class="analysis-container">
+      <!-- Left: Upload Form -->
+      <div class="upload-card">
+        <h3>📤 Sample Upload</h3>
+
+        <label>📍 Farm Location</label>
+        <input type="text" placeholder="Enter farm location" />
+
+        <label>🌾 Crop Type</label>
+        <select>
+          <option>Cotton</option>
+          <option>Rice</option>
+          <option>Wheat</option>
+          <option>Maize</option>
+          <option>Soybean</option>
+        </select>
+
+        <label>📅 Test Date</label>
+        <input type="date" value="2025-10-16" />
+
+        <label>🖼️ Soil Sample Image</label>
+        <div class="upload-box">
+          <input type="file" id="fileInput" hidden />
+          <label for="fileInput" class="upload-label">Click here to upload soil report</label>
+        </div>
+
+        <button class="primary-btn" id="start">Start Analysis</button>
+      </div>
+
+      <!-- Right: Result Card -->
+      <div class="result-card">
+        <div class="icon">🧪</div>
+        <h2>Ready for Analysis</h2>
+        <p>Upload a soil sample image and fill in the details to get started</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

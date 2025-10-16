@@ -1,0 +1,268 @@
+/* Soil Analysis Section */
+.soil-analysis {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to bottom right, #f7fff8, #e8f9e8);
+  min-height: 100vh;
+}
+
+.soil-analysis h1 {
+  color: #0b8d31;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.soil-analysis .subtitle {
+  color: #555;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+}
+
+.analysis-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Upload Form */
+.upload-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  padding: 30px;
+  width: 350px;
+  text-align: left;
+}
+
+.upload-card h3 {
+  color: #0b8d31;
+  margin-bottom: 20px;
+}
+
+.upload-card label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-top: 15px;
+}
+
+.upload-card input,
+.upload-card select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.upload-box {
+  border: 2px dashed #bbb;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 25px;
+  text-align: center;
+  background: #f8fff8;
+}
+
+.upload-label {
+  color: #0b8d31;
+  cursor: pointer;
+  padding: 20px;
+  font-weight: 600;
+}
+
+/* Result Card */
+.result-card {
+  flex: 1;
+  min-width: 350px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.result-card .icon {
+  font-size: 4rem;
+  color: #0b8d31;
+  margin-bottom: 20px;
+}
+
+.result-card h2 {
+  color: #0b8d31;
+  margin-bottom: 10px;
+}
+
+.result-card p {
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .analysis-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .upload-card,
+  .result-card {
+    width: 90%;
+  }
+}
+/* --- Detailed Analysis Results Styles (New) --- */
+
+.detailed-analysis-results {
+    text-align: left;
+    padding: 10px;
+}
+
+.detailed-analysis-results h2 {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.results-grid {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.results-section {
+    flex: 1;
+    min-width: 150px;
+}
+
+.section-title {
+    color: #0b8d31;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.data-point {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.data-point:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 500;
+    color: #555;
+}
+
+.value {
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Status Colors */
+.success::before {
+    content: "✅";
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.error {
+    color: #d9534f; /* Red for high/low */
+}
+
+.error::before {
+    content: ""; /* No checkmark for error status */
+}
+
+.status {
+    font-weight: 400;
+    font-size: 0.9em;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.status.optimal {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status.high {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+/* Farming Recommendations */
+.recommendations-box {
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.optimized-for {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.recommendation-item {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+/* High Priority Recommendation Styling */
+.recommendation-item.high-priority {
+    background-color: #fcf8e3; /* Light yellow background */
+    border: 1px solid #faebcc;
+    color: #8a6d3b;
+}
+
+.recommendation-item.high-priority .rec-text::before {
+    content: "⚠️";
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.priority-tag {
+    background-color: #d9534f;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Note/Info Recommendation Styling */
+.recommendation-item.info {
+    background-color: #d9edf7; /* Light blue background */
+    border: 1px solid #bce8f1;
+    color: #31708f;
+}
+
+.recommendation-item.info .rec-text::before {
+    content: "ⓘ";
+    margin-right: 10px;
+    font-size: 1.2em;
+}
