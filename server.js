@@ -31,7 +31,8 @@ app.use(
 );
 
 // Accept larger JSON payloads if needed
-app.use(express.json({ limit: "256kb" }));
+// Accept larger JSON payloads (increased to allow big requests)
+app.use(express.json({ limit: "10mb" }));
 
 // Require GEMINI_API_KEY in environment on startup (set this in Render's Environment settings)
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
@@ -51,17 +52,12 @@ app.post("/api/chat", async (req, res) => {
       GEMINI_API_KEY
     )}`;
 
-    // timeout for upstream call
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
-
+    // Call upstream API without client-enforced timeout so responses can take as long as needed
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }] }),
-      signal: controller.signal,
     });
-    clearTimeout(timeout);
 
     if (!response.ok) {
       const body = await response.text().catch(() => "");

@@ -86,7 +86,9 @@ async function sendMessageToServer(message) {
   chatBox.scrollTop = chatBox.scrollHeight;
 
   try {
-    const response = await fetch("/api/chat", {
+    // Use relative API path so requests go to the same origin when deployed
+    const API_URL = '/api/chat';
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt: message }),
