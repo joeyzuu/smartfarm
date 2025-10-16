@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 // Use environment variable for API key in production; don't hardcode secrets
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "REPLACE_WITH_YOUR_KEY";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!process.env.GEMINI_API_KEY) {
   console.warn(
     "⚠️ GEMINI_API_KEY not set in env. Using fallback value — do NOT commit real keys to repo."
