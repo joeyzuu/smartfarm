@@ -8,9 +8,11 @@
 body {
   background: #f7fff8;
   color: hsl(0, 0%, 10%);
-  overflow-x: hidden;
+  overflow-x: hidden; /* prevent horizontal scroll globally */
   /* transition: background 0.3s, color 0.3s; */
 }
+
+html { overflow-x: hidden; }
 
 /* Navbar */
 .navbar {
@@ -24,6 +26,13 @@ body {
   top: 0;
   z-index: 1;
 }
+.nav-links a.active {
+  color: #ffffff;
+  background-color: #0b8d31;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
 
 .logo {
   display: flex;
@@ -185,20 +194,55 @@ body {
   .nav-links {
     display: none;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     position: absolute;
     top: 70px;
-    right: 20px;
+    /* ensure nav never causes horizontal overflow */
+    left: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
+    max-width: calc(100% - 20px);
     background: white;
-    padding: 20px;
+    padding: 12px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     z-index: 100;
+    overflow-x: hidden;
   }
 
   .nav-links.show {
     display: flex;
   }
+}
+
+/* make sure wide images/cards scale down on small screens */
+.farming-card img, .card-content img, img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* reduce large gaps on very small screens to avoid overflow */
+@media (max-width: 420px) {
+  .nav-links { gap: 10px; padding: 10px; left: 6px; right: 6px; width: calc(100% - 12px); }
+  .nav-links a { font-size: 0.95rem; }
+}
+
+/* Additional small-screen improvements */
+@media (max-width: 768px) {
+  .hero { padding: 70px 12px; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .hero-buttons { gap: 12px; flex-direction: column; }
+  .primary-btn, .secondary-btn { width: 100%; }
+  .stats { gap: 10vw; }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: 1.5rem; }
+  .stats { gap: 6vw; }
+  .farming-grid { gap: 18px; }
+  .stat-item .icon { font-size: 1.5rem; }
 }
 ::selection {
   background-color: #0b8d31; /* green background */
@@ -304,4 +348,44 @@ body {
   height: 20vh;
   background-color: transparent;
   border: transparent;
+}
+.learn-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b8d31;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.learn-more-btn .arrow {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.1s ease;
+}
+
+.learn-more-btn:hover {
+  background: #097529;
+}
+
+.learn-more-btn:hover .arrow {
+  transform: translateX(5px); /* arrow slides smoothly */
+}
+
+/* Responsive: full width on small screens */
+@media (max-width: 768px) {
+  .learn-more-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem;
+  }
 }

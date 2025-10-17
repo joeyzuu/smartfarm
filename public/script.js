@@ -1,22 +1,35 @@
 // nav links hover //
-
 const links = document.querySelectorAll('.nav-links a');
+const currentPage = window.location.pathname.split('/').pop(); // e.g., "index.html"
 
 links.forEach(link => {
+  const linkPage = link.getAttribute('href');
+
+  // Automatically add "active" class if it matches current page
+  if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+    link.classList.add('active');
+  }
+
+  // Hover effect for non-active links
   link.addEventListener('mouseover', () => {
+    if (link.classList.contains('active')) return;
+
     link.style.color = '#ffffff';
     link.style.backgroundColor = '#0b8d31';
-    link.style.padding = '5px 10px 5px 10px';
-    link.style.borderRadius = '10px'
+    link.style.padding = '5px 10px';
+    link.style.borderRadius = '10px';
     link.style.transition = 'background-color 0.5s, padding 0.5s';
   });
 
   link.addEventListener('mouseout', () => {
-    link.style.color = '';           // revert to original
+    if (link.classList.contains('active')) return;
+
+    link.style.color = '';
     link.style.backgroundColor = '';
     link.style.padding = '';
   });
 });
+
 
 
 // Hamburger menu toggle (guarded in case element isn't on the page)
@@ -141,3 +154,14 @@ if (soilBtn && report) {
     }, 5000);
   });
 }
+
+document.querySelectorAll('.learn-more-btn').forEach(btn => {
+  // btn.addEventListener('mouseover', () => {btn.textContent = `Learn More \u00A0→`;});
+  // btn.addEventListener('mouseout', () => {btn.textContent = 'Learn More →';});
+  btn.addEventListener('click', () => {
+    const link = btn.getAttribute('data-link');
+    if (link && link !== '#') {
+      window.open(link, '_blank');
+    }
+  });
+});

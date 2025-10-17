@@ -204,6 +204,19 @@
   box-shadow: 0 12px 35px rgba(0,0,0,0.15);
 }
 
+/* Disable hover/hover-effects for the methodDetails container specifically */
+.modal-content > #methodDetails {
+  background: transparent;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 0;
+  transition: none;
+}
+.modal-content > #methodDetails:hover {
+  transform: none;
+  box-shadow: rgba(0, 0, 0, 0.15);
+}
+
 /* Method Title */
 .modal-content h3 {
   color: #0b8d31;

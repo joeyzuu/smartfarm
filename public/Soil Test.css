@@ -113,8 +113,21 @@
 
   .upload-card,
   .result-card {
-    width: 90%;
+    width: 95%;
+    padding: 20px;
   }
+
+  .upload-card { width: 92%; }
+}
+
+@media (max-width: 420px) {
+  .soil-analysis { padding: 40px 12px; margin-top: 70px; }
+  .soil-analysis h1 { font-size: 1.6rem; }
+  .upload-card { padding: 16px; }
+  .upload-box { padding: 18px; }
+  .result-card { padding: 18px; }
+  .detailed-analysis-results h2 { font-size: 1.2rem; }
+  .results-grid { flex-direction: column; gap: 16px; }
 }
 /* --- Detailed Analysis Results Styles (New) --- */
 

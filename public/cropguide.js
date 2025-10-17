@@ -25,7 +25,7 @@ const cropData = {
             name: "System of Rice Intensification (SRI)",
             description: "Method using younger seedlings, wider spacing, and intermittent irrigation",
             benefits: ["Higher yields", "Less water usage", "Stronger root system"],
-            cost: "$40-80/acre",
+            cost: "₹3549-7099/acre",
             timeToEffect: "1 season",
             image: "🌾",
             steps: ["Use 8-12 day old seedlings", "Plant single seedlings 25cm apart", "Keep soil moist not flooded", "Use organic fertilizers"]
@@ -34,7 +34,7 @@ const cropData = {
             name: "Duck-Rice Integration",
             description: "Raising ducks in rice fields for natural pest control and fertilization",
             benefits: ["Natural pest control", "Organic fertilizer", "Additional income"],
-            cost: "$60-100/acre",
+            cost: "₹5324-8874/acre",
             timeToEffect: "2 months",
             image: "🦆",
             steps: ["Introduce ducks after 20 days", "Maintain 10-15 ducks per acre", "Provide shelter", "Harvest both rice and ducks"]
@@ -43,7 +43,7 @@ const cropData = {
             name: "Green Manuring",
             description: "Growing nitrogen-fixing crops before rice planting",
             benefits: ["Improves soil fertility", "Reduces fertilizer cost", "Enhances soil structure"],
-            cost: "$30-60/acre",
+            cost: "₹2662-5324/acre",
             timeToEffect: "60 days",
             image: "🌱",
             steps: ["Plant Sesbania or Azolla", "Allow 45-60 days growth", "Incorporate into soil", "Plant rice after decomposition"]
@@ -58,7 +58,7 @@ const cropData = {
             name: "NPK Fertilizer Application",
             description: "Systematic application of Nitrogen, Phosphorus, and Potassium",
             benefits: ["Rapid growth", "High yield", "Predictable results"],
-            cost: "$120-180/acre",
+            cost: "₹10648-15973/acre",
             timeToEffect: "2-3 weeks",
             image: "⚗️",
             steps: ["Soil test for NPK levels", "Apply basal dose before planting", "Top dress nitrogen at tillering", "Apply phosphorus and potassium as needed"]
@@ -67,7 +67,7 @@ const cropData = {
             name: "Herbicide Weed Control",
             description: "Chemical control of weeds in rice fields",
             benefits: ["Effective weed elimination", "Labor saving", "Uniform crop growth"],
-            cost: "$80-120/acre",
+            cost: "₹7099-10648/acre",
             timeToEffect: "5-7 days",
             image: "🌿",
             steps: ["Pre-emergence herbicide application", "Post-emergence treatment if needed", "Selective herbicides for grass weeds", "Follow recommended dosage"]
@@ -84,7 +84,7 @@ const cropData = {
             name: "Bt Cotton Cultivation",
             description: "Genetically modified cotton with built-in pest resistance",
             benefits: ["Reduced pesticide use", "Higher yields", "Bollworm resistance"],
-            cost: "$150-250/acre",
+            cost: "₹13311-22185/acre",
             timeToEffect: "Full season",
             image: "🧬",
             steps: ["Use certified Bt seeds", "Follow refuge requirements", "Monitor for secondary pests", "Apply supplemental pesticides as needed"]
@@ -93,7 +93,7 @@ const cropData = {
             name: "Drip Fertigation",
             description: "Combining drip irrigation with liquid fertilizer application",
             benefits: ["Water efficiency", "Precise nutrient delivery", "Reduced labor"],
-            cost: "$300-500/acre",
+            cost: "₹26622-44370/acre",
             timeToEffect: "Immediate",
             image: "💧",
             steps: ["Install drip system", "Prepare fertilizer solution", "Schedule fertigation cycles", "Monitor plant response"]
@@ -102,7 +102,7 @@ const cropData = {
             name: "Growth Regulators",
             description: "Chemical hormones to control cotton plant growth",
             benefits: ["Controlled plant height", "Better boll setting", "Uniform maturity"],
-            cost: "$90-140/acre",
+            cost: "₹7986-12423/acre",
             timeToEffect: "1-2 weeks",
             image: "📈",
             steps: ["Apply at squaring stage", "Use recommended concentration", "Time application with weather", "Monitor plant response"]
@@ -119,7 +119,7 @@ const cropData = {
             name: "Three Sisters Planting",
             description: "Intercropping maize with beans and squash",
             benefits: ["Nitrogen fixation", "Soil conservation", "Pest management"],
-            cost: "$50-90/acre",
+            cost: "₹4437-7986/acre",
             timeToEffect: "Full season",
             image: "🌽",
             steps: ["Plant corn first", "Add beans 2-3 weeks later", "Plant squash around hills", "Monitor all three crops"]
@@ -128,7 +128,7 @@ const cropData = {
             name: "Compost Application",
             description: "Using well-decomposed organic matter for soil fertility",
             benefits: ["Improves soil health", "Slow-release nutrients", "Increases organic matter"],
-            cost: "$60-120/acre",
+            cost: "₹5324-10648/acre",
             timeToEffect: "2-3 months",
             image: "🌱",
             steps: ["Prepare quality compost", "Apply 5-10 tons per acre", "Incorporate into soil", "Plant after 2 weeks"]
@@ -143,7 +143,7 @@ const cropData = {
             name: "Hybrid Seed Technology",
             description: "Using high-yielding hybrid corn varieties with chemical inputs",
             benefits: ["Very high yields", "Disease resistance", "Uniform growth"],
-            cost: "$200-300/acre",
+            cost: "₹17748-26622/acre",
             timeToEffect: "Full season",
             image: "🔬",
             steps: ["Select appropriate hybrid", "Use recommended plant density", "Apply starter fertilizer", "Follow chemical spray schedule"]
@@ -152,7 +152,7 @@ const cropData = {
             name: "Atrazine Herbicide Program",
             description: "Pre and post-emergence weed control in corn",
             benefits: ["Excellent weed control", "Long-lasting effect", "Crop selectivity"],
-            cost: "$70-110/acre",
+            cost: "₹6211-9761/acre",
             timeToEffect: "1-2 weeks",
             image: "🧪",
             steps: ["Pre-plant herbicide application", "Post-emergence touch-up", "Tank-mix with other chemicals", "Follow rotation restrictions"]
@@ -169,7 +169,7 @@ const cropData = {
             name: "Crop Rotation with Legumes",
             description: "Rotating wheat with nitrogen-fixing crops",
             benefits: ["Natural nitrogen supply", "Disease break", "Soil health improvement"],
-            cost: "$40-80/acre",
+            cost: "₹3549-7099/acre",
             timeToEffect: "1-2 seasons",
             image: "🔄",
             steps: ["Plan 3-4 year rotation", "Include legumes like peas", "Follow with wheat", "Monitor soil fertility"]
@@ -178,7 +178,7 @@ const cropData = {
             name: "Organic Seed Treatment",
             description: "Natural methods to protect seeds from diseases",
             benefits: ["Disease prevention", "Better germination", "Chemical-free start"],
-            cost: "$20-40/acre",
+            cost: "₹1774-3549/acre",
             timeToEffect: "At planting",
             image: "🌾",
             steps: ["Use neem oil treatment", "Apply beneficial microorganisms", "Hot water treatment option", "Plant treated seeds immediately"]
@@ -187,7 +187,7 @@ const cropData = {
             name: "Mechanical Weed Control",
             description: "Using cultivation and hand weeding for weed management",
             benefits: ["No chemical residues", "Soil aeration", "Selective weed removal"],
-            cost: "$80-150/acre",
+            cost: "₹7099-13311/acre",
             timeToEffect: "Immediate",
             image: "🚜",
             steps: ["Cultivate between rows", "Hand weed near plants", "Time operations with growth stage", "Multiple passes as needed"]
@@ -204,7 +204,7 @@ const cropData = {
             name: "Hydroponic System",
             description: "Soilless cultivation using nutrient solutions",
             benefits: ["Precise nutrition", "Higher yields", "Disease control"],
-            cost: "$800-1200/acre",
+            cost: "₹70992-106488/acre",
             timeToEffect: "Immediate",
             image: "💧",
             steps: ["Set up hydroponic system", "Prepare nutrient solutions", "Monitor pH and EC", "Adjust nutrients based on growth stage"]
@@ -213,7 +213,7 @@ const cropData = {
             name: "Integrated Pest Management",
             description: "Systematic use of chemical pesticides with monitoring",
             benefits: ["Effective pest control", "Resistance management", "Optimized spray timing"],
-            cost: "$150-250/acre",
+            cost: "₹13311-22185/acre",
             timeToEffect: "1-3 days",
             image: "🧪",
             steps: ["Regular pest monitoring", "Threshold-based spraying", "Rotate chemical groups", "Record keeping"]
@@ -222,7 +222,7 @@ const cropData = {
             name: "Plastic Mulch with Fertilizer",
             description: "Combining plastic mulch with chemical fertilizers",
             benefits: ["Weed suppression", "Moisture conservation", "Faster growth"],
-            cost: "$200-300/acre",
+            cost: "₹17748-26622/acre",
             timeToEffect: "Immediate",
             image: "🛡️",
             steps: ["Install drip lines", "Lay plastic mulch", "Apply liquid fertilizers through drip", "Monitor plant nutrition"]
@@ -239,7 +239,7 @@ const cropData = {
             name: "Deep Bed Preparation",
             description: "Creating loose, deep soil for proper root development",
             benefits: ["Better root formation", "Improved drainage", "Easy harvesting"],
-            cost: "$80-150/acre",
+            cost: "₹7099-13311/acre",
             timeToEffect: "Immediate",
             image: "🥕",
             steps: ["Deep tillage to 12-15 inches", "Add organic compost", "Create raised beds", "Ensure proper soil texture"]
@@ -248,7 +248,7 @@ const cropData = {
             name: "Companion Planting",
             description: "Growing carrots with beneficial companion plants",
             benefits: ["Natural pest deterrent", "Space utilization", "Soil improvement"],
-            cost: "$40-70/acre",
+            cost: "₹3549-7099/acre",
             timeToEffect: "2-3 weeks",
             image: "🌿",
             steps: ["Plant with onions or chives", "Add marigolds for pest control", "Interplant with lettuce", "Maintain proper spacing"]
@@ -257,7 +257,7 @@ const cropData = {
             name: "Organic Mulching",
             description: "Using organic materials to cover soil around carrots",
             benefits: ["Moisture retention", "Weed suppression", "Temperature regulation"],
-            cost: "$60-100/acre",
+            cost: "₹5324-8874/acre",
             timeToEffect: "Immediate",
             image: "🍂",
             steps: ["Apply straw or leaf mulch", "Keep mulch away from crown", "Maintain 2-3 inch thickness", "Refresh as needed"]
