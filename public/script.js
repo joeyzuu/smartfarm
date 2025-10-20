@@ -155,13 +155,38 @@ if (soilBtn && report) {
   });
 }
 
+
+
+// Handle Learn More video popup
 document.querySelectorAll('.learn-more-btn').forEach(btn => {
-  // btn.addEventListener('mouseover', () => {btn.textContent = `Learn More \u00A0→`;});
-  // btn.addEventListener('mouseout', () => {btn.textContent = 'Learn More →';});
   btn.addEventListener('click', () => {
-    const link = btn.getAttribute('data-link');
-    if (link && link !== '#') {
-      window.open(link, '_blank');
+    let videoHTML = btn.getAttribute('data-link');
+    
+    // ✅ Add autoplay parameter if it's a YouTube embed
+    if (videoHTML.includes("youtube.com/embed")) {
+      videoHTML = videoHTML.replace("?", "?autoplay=1&");
     }
+
+    const modal = document.getElementById('videoModal');
+    const container = document.getElementById('videoContainer');
+
+    container.innerHTML = videoHTML; // insert iframe
+    modal.style.display = 'flex';
   });
+});
+
+// Close modal when clicking the X button
+document.querySelector('.close-btn').addEventListener('click', () => {
+  const modal = document.getElementById('videoModal');
+  modal.style.display = 'none';
+  document.getElementById('videoContainer').innerHTML = ''; // stop video
+});
+
+// Optional: close modal when clicking outside
+window.addEventListener('click', e => {
+  const modal = document.getElementById('videoModal');
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    document.getElementById('videoContainer').innerHTML = ''; // stop video
+  }
 });

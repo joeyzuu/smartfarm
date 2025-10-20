@@ -389,3 +389,60 @@ html { overflow-x: hidden; }
     font-size: 1rem;
   }
 }
+/* ==== Modal Styles ==== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  justify-content: center;
+  align-items: center;
+}
+
+/* White box containing iframe */
+.modal-content {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 600px;
+  position: relative;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* 🔹 Close button now floats clearly above video */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  z-index: 1100; /* ensures above iframe */
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 12px;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 0, 0, 0.7);
+}
+
+#videoContainer iframe {
+  width: 100%;
+  height: 315px;
+  border-radius: 10px;
+}
+
